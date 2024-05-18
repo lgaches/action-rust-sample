@@ -1,22 +1,23 @@
-name: action-test
+name: rust-lga-test
 description: Testing Rust Github action
 author: Laurent Gaches <laurent@l18.dev>
+
 inputs:
   error:
-    description: 'The error message to display, if any'
+    description: "The error message to display, if any"
     required: false
-    default: ''
+    default: ""
   token:
-    description: 'The GitHub token to use for downloading the action, defaults to workflow token'
+    description: "The GitHub token to use for downloading the action, defaults to workflow token"
     required: true
     default: ${{ github.token }}
 outputs:
   error:
-    description: 'The description of any error that occurred'
+    description: "The description of any error that occurred"
     value: ${{ steps.run.outputs.error }}
 
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - name: Set reusable variables
       shell: bash
